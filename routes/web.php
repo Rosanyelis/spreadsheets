@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReportesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/reporte-detallado', [ReportesController::class, 'index']);
+Route::get('/reporte-factura', [ReportesController::class, 'getPdfFactura']);
+Route::post('/reporte-detallado-generar', [ReportesController::class, 'store']);
