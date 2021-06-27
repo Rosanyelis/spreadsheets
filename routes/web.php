@@ -14,10 +14,9 @@ use App\Http\Controllers\ReportesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/reporte-detallado', [ReportesController::class, 'index']);
-Route::get('/reporte-factura', [ReportesController::class, 'getPdfFactura']);
+Route::get('/', [ReportesController::class, 'index']);
 Route::post('/reporte-detallado-generar', [ReportesController::class, 'store']);

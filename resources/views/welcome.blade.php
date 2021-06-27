@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Reportes</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -83,8 +83,7 @@
                       @endif
                   </div>
                 </div>
-                <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Generar Reporte Historico</button>
-                <a href="{{ url('/reporte-factura') }}" class="btn btn-success btn-lg btn-block mt-4">Generar Reporte de Factura</a>
+                <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Generar Reporte</button>
               </form>
         </div>
 

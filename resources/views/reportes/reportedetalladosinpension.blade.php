@@ -9,7 +9,15 @@
         body{
             font-family: Arial, Helvetica, sans-serif;
         }
-        p{
+        .factura{
+            font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+            font-size: 8pt;
+        }
+        .titulo-1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8pt;
+        }
+        .titulo-2{
             text-align: center; 
         }
 
@@ -25,7 +33,6 @@
             font-size: 7pt;
             padding-top: 20px;
             padding-bottom: 20px;
-            /* text-align: center; */
         }
 
         .caja{
@@ -37,16 +44,14 @@
             font-size: 10pt;
         }
         .caja2{
+            z-index: 999;
             position: absolute;
             margin-top: 170px;
+            margin-left: 15px;
             width: 93%;
         }
 
         .datos-title {
-            /* padding-left: 10px;
-            padding-top: 10px;
-            margin-left: 57px; */
-            /* float: left; */
             width: 16%;
             float: left;
             height: auto;
@@ -115,6 +120,10 @@
             border-right: 0.1px solid #000;
             border-bottom: 0.1px solid #000;
         }
+        .logo1{
+            margin-left: 32px;
+            margin-bottom: 25px;
+        }
         .imagen{
             /* position: absolute; */
             z-index: 200;
@@ -124,17 +133,29 @@
             float: right;
         }
         .marca-agua{
-            z-index: -50;
+            z-index: -90;
             margin-top: 16em;
             margin-left: 22em;
             width:42.8%;
             float: left;
         }
+        .tabla-fact{ 
+            color: #006BA8; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+            font-size: 7pt;
+        }
+        #title{
+            padding: 5px;
+        }
+
+        #top{
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body> 
 
-    <p>REPORTE HISTORICO</p>
+    
     @php
         $time = time();
         $mes = date("m");
@@ -144,6 +165,9 @@
         $fecha2 = date("d/m/Y");
         $tiempo = date("d/m/Y H:i:s", $time);
     @endphp
+
+
+    <p class="titulo-2" >REPORTE HISTORICO</p>
     <div class="caja">
         <div class="datos-title"><b>NIT/CC Aportante</b></div>
         <div class="datos-content1" style="border: 1px solid black;">{{ $dni }}</div>
@@ -191,7 +215,7 @@
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Periódo<br>EPS</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Periódo<br>Otros</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Número<br>Plantilla</td>
-                <td id="titulo" class="bordes-rigth-bottom-top" width='60'>EPS</td>
+                <td id="titulo" class="bordes-rigth-bottom-top" width='70'>EPS</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='70'>AFP</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>C<br>C<br>F</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='60'>ARL</td>
@@ -235,7 +259,7 @@
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center">I</td>
                 <td id="data" class="bordes-rigth-bottom">{{ $periodoEPS }}</td>
                 <td id="data" class="bordes-rigth-bottom">{{ $periodoEPS }}</td>
-                <td id="data" class="bordes-rigth-bottom"><b>{{ $data->numero_planilla }}</b></td>
+                <td id="data" class="bordes-rigth-bottom"><b>{{ $number_p }}</b></td>
                 <td id="data" class="bordes-rigth-bottom">{{ $eps }}</td>
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center"></td>
                 <td id="data" class="bordes-rigth-bottom"></td>
@@ -299,8 +323,44 @@
     <img class="marca-agua" src="img/marcadeagua.jpg" alt="">
 
     <div style="width:80%;position: absolute;float: left;margin-top:42em; padding:0px;">
-        {{ $tiempo }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pág 2 de2
+        {{ $tiempo }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pág 1 de2
         
+    </div>
+
+    <div class="factura" style="page-break-before: always;">
+        <p class="titulo-1">{{ $fecha2 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Historial deTransacciones</p>
+        <img class="logo1" src="img/loguito.png" width="20%" alt="">
+
+        <table class="tabla-fact">
+            <tr>
+                <td id="title"><b><center>Transacción</center></b></td>
+                <td id="title"><b><center>Planilla</center></b></td>
+                <td id="title"><b><center>Año <br> Salud</b></center></td>
+                <td id="title"><b><center>Mes <br>Salud</b></center></td>
+                <td id="title"><b><center>Año <br>Otros</b></center></td>
+                <td id="title"><b><center>Mes <br>Otros</b></center></td>
+                <td id="title"><b><center>Valor</center></b></td>
+                <td id="title"><b><center>Estado <br>Planilla</b></center></td>
+                <td id="title"><b><center>Estado <br>Transacción</b></center></td>
+                <td id="title"><b><center>Fecha Transacción</b></center></td>
+            </tr>
+            <tr>
+                <td id="top"><b>{{ $number_t }}</b></td>
+                <td id="top"><b>{{ $number_p }}</b></td>
+                <td id="top"><b>{{ $año }}</b></td>
+                <td id="top"><b>{{ $mes }}</b></td>
+                <td id="top"><b>{{ $año }}</b></td>
+                <td id="top"><b>{{ $mes }}</b></td>
+                <td id="top"><b>298.600,00</b></td>
+                <td id="top"><b>PAGADA</b></td>
+                <td id="top"><b>APROBADA</b></td>
+                <td id="top"><b>{{ $fecha }}</b></td>
+            </tr>
+        </table>
+
+        <footer style="margin-top: 430px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pág 2 de2
+        </footer>
     </div>
 </body>
 </html>

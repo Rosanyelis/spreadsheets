@@ -14,7 +14,6 @@
         p{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 8pt;
-            /* text-align: center; */
         }
         table{ 
             color: #006BA8; 

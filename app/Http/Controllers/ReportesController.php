@@ -17,10 +17,7 @@ class ReportesController extends Controller
      */
     public function index(Request $request)
     {
-
-        
-
-        
+        return view('welcome');
     }
 
     /**
@@ -110,6 +107,16 @@ class ReportesController extends Controller
 
             $data = ReporteFactura::first();
 
+            $number_p = $data->numero_planilla + 1;
+            $number_t = $data->numero_transaccion + 1;
+            
+            DB::table('reporte_factura')
+                    ->where('id', 1)
+                    ->update(['numero_planilla' => $number_p]);
+            DB::table('reporte_factura')
+                    ->where('id', 1)
+                    ->update(['numero_transaccion' => $number_t]);
+
             $razon_social = strtoupper($request->input('razon_social'));
             $dni = $request->input('dni');
 
@@ -117,14 +124,15 @@ class ReportesController extends Controller
             $afp = strtoupper($request->input('afp'));
             $arl = strtoupper($request->input('arl'));
             
-            $html2 = view('reportes.reportedetallado', compact('razon_social', 'dni','data' ,'eps', 'afp', 'arl'));
-            $pdf_nombre = 'Reporte-historico' . '.pdf';
+            $html2 = view('reportes.reportedetallado', compact('razon_social', 'dni','data' ,'eps', 'afp', 'arl','number_p', 'number_t'));
+
+            $pdf_nombre = $razon_social . '.pdf';
             $mpdf = new Mpdf\Mpdf([
                 'format' => 'Legal',
                 'orientation' => 'L'
             ]);
             $mpdf->WriteHTML($html2);
-            $mpdf->Output($pdf_nombre, 'D');
+            $mpdf->Output($pdf_nombre, 'I');
 
             return redirect('/');
         }else {
@@ -172,21 +180,6 @@ class ReportesController extends Controller
 
             $eps = strtoupper($request->input('eps1'));
             $arl = strtoupper($request->input('arl1'));
-            
-            $html2 = view('reportes.reportedetalladosinpension', compact('razon_social', 'dni','data' ,'eps', 'arl'));
-            $pdf_nombre = 'Reporte-historico-sin-pension' . '.pdf';
-            $mpdf = new Mpdf\Mpdf([
-                'format' => 'Legal',
-                'orientation' => 'L'
-            ]);
-            $mpdf->WriteHTML($html2);
-            $mpdf->Output($pdf_nombre, 'D');
-        }
-    }
-
-    public function getPdfFactura()
-    {
-        $data = ReporteFactura::first();
 
             $number_p = $data->numero_planilla + 1;
             $number_t = $data->numero_transaccion + 1;
@@ -197,19 +190,18 @@ class ReportesController extends Controller
             DB::table('reporte_factura')
                     ->where('id', 1)
                     ->update(['numero_transaccion' => $number_t]);
-    
-            $html = view('reportes.reportehistorico', compact('number_p', 'number_t'));
-    
-            $pdf_name = 'historial-de-transacciones' . '.pdf';
-    
-            $pdf = new Mpdf\Mpdf([
-                'format' => 'Letter',
+            
+            $html2 = view('reportes.reportedetalladosinpension', compact('razon_social', 'dni','data' ,'eps', 'arl','number_p', 'number_t'));
+
+            $pdf_nombre = $razon_social . '.pdf';
+            $mpdf = new Mpdf\Mpdf([
+                'format' => 'Legal',
                 'orientation' => 'L'
             ]);
-            $pdf->WriteHTML($html);
-            
-
-            return $pdf->Output($pdf_name, 'D');
+            $mpdf->WriteHTML($html2);
+            $mpdf->Output($pdf_nombre, 'I');
+        }
     }
+
 
 }
