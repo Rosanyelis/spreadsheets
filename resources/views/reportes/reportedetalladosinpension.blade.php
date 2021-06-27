@@ -215,10 +215,10 @@
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Periódo<br>EPS</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Periódo<br>Otros</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='40'>Número<br>Plantilla</td>
-                <td id="titulo" class="bordes-rigth-bottom-top" width='70'>EPS</td>
-                <td id="titulo" class="bordes-rigth-bottom-top" width='70'>AFP</td>
-                <td id="titulo" class="bordes-rigth-bottom-top" width='40'>C<br>C<br>F</td>
-                <td id="titulo" class="bordes-rigth-bottom-top" width='60'>ARL</td>
+                <td id="titulo" class="bordes-rigth-bottom-top" width='90'>EPS</td>
+                <td id="titulo" class="bordes-rigth-bottom-top" width='90'>AFP</td>
+                <td id="titulo" class="bordes-rigth-bottom-top" width='65'>C<br>C<br>F</td>
+                <td id="titulo" class="bordes-rigth-bottom-top" width='90'>ARL</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='12'>I<br>N<br>G</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='12'>R<br>E<br>T</td>
                 <td id="titulo" class="bordes-rigth-bottom-top" width='12'>T<br>A<br>E</td>
@@ -279,7 +279,7 @@
                 <td id="data" class="bordes-rigth-bottom"></td>
                 <td id="data" class="bordes-rigth-bottom"></td>
                 <td id="data" class="bordes-rigth-bottom"></td>
-                <td id="data" class="bordes-rigth-bottom" style="text-align: center">30</td>
+                <td id="data" class="bordes-rigth-bottom" style="text-align: center">0</td>
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center">30</td>
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center">30</td>
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center">0</td>
@@ -351,7 +351,7 @@
                 <td id="top"><b>{{ $mes }}</b></td>
                 <td id="top"><b>{{ $año }}</b></td>
                 <td id="top"><b>{{ $mes }}</b></td>
-                <td id="top"><b>298.600,00</b></td>
+                <td id="top"><b>153.200,00</b></td>
                 <td id="top"><b>PAGADA</b></td>
                 <td id="top"><b>APROBADA</b></td>
                 <td id="top"><b>{{ $fecha }}</b></td>

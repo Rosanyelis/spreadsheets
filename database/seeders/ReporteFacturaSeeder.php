@@ -15,8 +15,8 @@ class ReporteFacturaSeeder extends Seeder
     public function run()
     {
         ReporteFactura::create([
-            'numero_planilla' => '70290145', 
-            'numero_transaccion' => '386145591',
+            'numero_planilla' => '21371210', 
+            'numero_transaccion' => '3571341117',
         ]);
     }
 }

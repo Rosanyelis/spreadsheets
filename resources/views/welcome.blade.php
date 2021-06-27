@@ -83,7 +83,7 @@
                       @endif
                   </div>
                 </div>
-                <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Generar Reporte</button>
+                <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Aportes en línea</button>
               </form>
         </div>
 

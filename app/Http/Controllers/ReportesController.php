@@ -120,9 +120,9 @@ class ReportesController extends Controller
             $razon_social = strtoupper($request->input('razon_social'));
             $dni = $request->input('dni');
 
-            $eps = strtoupper($request->input('eps'));
-            $afp = strtoupper($request->input('afp'));
-            $arl = strtoupper($request->input('arl'));
+            $eps = $request->input('eps');
+            $afp = $request->input('afp');
+            $arl = $request->input('arl');
             
             $html2 = view('reportes.reportedetallado', compact('razon_social', 'dni','data' ,'eps', 'afp', 'arl','number_p', 'number_t'));
 
