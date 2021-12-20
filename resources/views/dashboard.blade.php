@@ -16,7 +16,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Razón Social</label>
-                                    <input type="text"
+                                    <input type="text" name="razon_social"
                                         class="form-control form-control-sm @error('razon_social') is-invalid @enderror"
                                         value="{{ old('razon_social') }}">
                                     @if ($errors->has('razon_social'))
@@ -27,7 +27,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Número de DNI</label>
-                                    <input type="text"
+                                    <input type="text" name="dni"
                                         class="form-control form-control-sm @error('dni') is-invalid @enderror"
                                         value="{{ old('dni') }}">
                                     @if ($errors->has('dni'))
