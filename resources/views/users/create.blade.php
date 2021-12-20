@@ -3,11 +3,11 @@
     <div class="row">
         <div class="col-md-12 grid-margin">
             <div class="row">
-                <div class="col-10 col-xl-10 mb-4 mb-xl-0">
+                <div class="col-md-9 col-xl-10 mb-4">
                     <h2 class="font-weight-bold">Crear Usuario</h2>
                 </div>
-                <div class="col-2 col-xl-2">
-                    <a href="{{ url('usuarios') }}" class="btn btn-dark font-weight-bold ml-5"> <i
+                <div class="col-md-3 col-xl-2">
+                    <a href="{{ url('usuarios') }}" class="btn btn-dark font-weight-bold"> <i
                             class="ti-arrow-left"></i> Regresar</a>
                 </div>
             </div>

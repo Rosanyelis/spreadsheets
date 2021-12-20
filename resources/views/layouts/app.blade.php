@@ -27,13 +27,18 @@
         <!-- partial:partials/_navbar.html <img  alt="logo" style="width: 300px;">-->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('images/logo.png') }}"
+                <a class="navbar-brand brand-logo mr-5" href="{{ url('dashboard') }}"><img src="{{ asset('images/logo.png') }}"
                         class="mr-2" alt="logo"  /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo-mini.png') }}"
+                <a class="navbar-brand brand-logo-mini" href="{{ url('dashboard') }}"><img src="{{ asset('images/logo-mini.png') }}"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('dashboard') }}">
+                            <i class="ti-home mx-0"></i> Inicio
+                        </a>
+                    </li>
                     @if (Auth::user()->rol == 'AdminSystem')
                     <li class="nav-item">
                         <a class="nav-link" id="notificationDropdown" href="{{ url('usuarios') }}">

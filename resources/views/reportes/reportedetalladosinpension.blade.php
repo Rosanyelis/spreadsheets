@@ -260,10 +260,10 @@
                 <td id="data" class="bordes-rigth-bottom">{{ $periodoEPS }}</td>
                 <td id="data" class="bordes-rigth-bottom">{{ $periodoEPS }}</td>
                 <td id="data" class="bordes-rigth-bottom"><b>{{ $number_p }}</b></td>
-                <td id="data" class="bordes-rigth-bottom">{{ $eps }}</td>
+                <td id="data" class="bordes-rigth-bottom" style="text-align: center">{{ $eps }}</td>
                 <td id="data" class="bordes-rigth-bottom" style="text-align: center"></td>
-                <td id="data" class="bordes-rigth-bottom"></td>
-                <td id="data" class="bordes-rigth-bottom">{{ $arl }}</td>
+                <td id="data" class="bordes-rigth-bottom" ></td>
+                <td id="data" class="bordes-rigth-bottom" style="text-align: center">{{ $arl }}</td>
                 <td id="data" class="bordes-rigth-bottom"></td>
                 <td id="data" class="bordes-rigth-bottom"></td>
                 <td id="data" class="bordes-rigth-bottom"></td>
